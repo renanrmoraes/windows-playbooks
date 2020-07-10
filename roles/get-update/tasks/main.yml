@@ -4,3 +4,6 @@
     category_names: SecurityUpdates
     state: searched
     log_path: C:\ansible_wu.txt
+  register: wsus
+
+- debug: var=wsus
