@@ -4,19 +4,8 @@
   gather_facts: false
   tasks:
 
-    - name: Install
+    - name: CHECK UPDATES
       include_role:
         name: "{{ item }}"
       loop:
-        - install-agent
-        - add-host
-      when: "zbx_deploy == True"
-
-    - name: Uninstall
-      include_role:
-        name: "{{ item }}"
-      loop:
-        - remove-host
-        - uninstall-agent
-      when: "zbx_deploy == False"
-
+        - get-update
