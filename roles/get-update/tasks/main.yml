@@ -6,4 +6,6 @@
     log_path: C:\ansible_wu.txt
   register: wsus
 
-- debug: var=wsus
+- name: Resultado da task anterior
+  debug:
+     msg: wsus
