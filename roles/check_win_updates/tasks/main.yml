@@ -77,14 +77,27 @@
   delegate_to: localhost
   run_once: yes
 
-- name: Send Email with Report
+#- name: Send Email with Report
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: "{{ gmail_account }}"
+#    password: "{{ gmail_account_password }}"
+#    to: "{{ to_email_report }}"
+#    subject: "Ansible Report"
+#    body: "The list of required Windows Update for the Windows VMs can be found in the attached file"
+#    attach:
+#     - reports/Consolidated_VMs_Report.html
+#  delegate_to: localhost
+#  run_once: yes
+
+- name: Sending an e-mail using the remote machine, not the Ansible controller node
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: "{{ gmail_account }}"
-    password: "{{ gmail_account_password }}"
+    host: "{{ smtp_server }}"
+    port: 25
+    from: ansible@f9c.com.br (AWX Ansible Automation)
     to: "{{ to_email_report }}"
-    subject: "Ansible Report"
+    subject: Ansible-report Windows Update
     body: "The list of required Windows Update for the Windows VMs can be found in the attached file"
     attach:
      - reports/Consolidated_VMs_Report.html
