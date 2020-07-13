@@ -84,7 +84,9 @@
     from: AWX Ansible Automation <ansible@f9c.com.br>
     to: "{{ to_email_report }}"
     subject: Ansible-report Windows Update
-    body: "The list of required Windows Update for the Windows VMs can be found in the attached file"
+#    body: "The list of required Windows Update for the Windows VMs can be found in the attached file"
+    subtype: html
+    body: "{{ lookup('file', 'reports/Consolidated_VMs_Report.html') }}"
     attach:
      - reports/Consolidated_VMs_Report.html
   delegate_to: localhost
