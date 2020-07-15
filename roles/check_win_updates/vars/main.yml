@@ -1,0 +1,3 @@
+---
+
+v_logo_url: "{{ logo_url | default('https://www.f9c.com.br/imagens/logo.png') }}"

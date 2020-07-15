@@ -1,6 +1,6 @@
 [windows]
-win01.home.lab
-win02.home.lab
+#win01.home.lab
+#win02.home.lab
 dc.home.lab
 
 [windows:vars]
@@ -10,6 +10,8 @@ ansible_winrm_transport = kerberos
 ansible_user = "ansible@HOME.LAB"
 ansible_password = "q1w2e3R$"
 ansible_winrm_server_cert_validation = ignore
+
+srv_name="Zabbix Agent"
 
 [all:vars]
 to_email_report="rmoraes@f9c.com.br"

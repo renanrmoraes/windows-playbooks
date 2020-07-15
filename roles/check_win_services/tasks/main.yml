@@ -1,0 +1,6 @@
+- name: Check if a service is installed
+  win_service:
+    name: "{{ srv_name }}"
+  register: service_info
+
+- debug: var=service_info
